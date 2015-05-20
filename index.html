@@ -1,6 +1,18 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+    <style type="text/css">
+      .vjs-default-skin { color: #ffffff; }
+      .vjs-default-skin .vjs-play-progress,
+      .vjs-default-skin .vjs-volume-level { background-color: #ffffff }
+      .vjs-default-skin .vjs-control-bar,
+      .vjs-default-skin .vjs-big-play-button { background: rgba(0,0,0,0.28) }
+      .vjs-default-skin .vjs-slider { background: rgba(0,0,0,0.09333333333333334) }
+      .vjs-default-skin .vjs-control-bar { font-size: 60% }
+    </style>
+
     <title>Kotajacob's Site</title>
     <html lang="en-US">
     <meta name="keywords" content="kota, Dakota Walsh, kotajacob, kotacode, programming, Creatures of Darkness, Hidden, Hidden browser game, Living Fantasy, Living Fantasy Card Game, Card Game, living fantasy" />
@@ -14,18 +26,16 @@
   </head>
   <body>
     <div class="nav">
-      <div class="container">
-        <ul>
-          <li><a href="index.html">ME</a></li>
-          <li><a href="projects.html">PROJECTS</a></li>
-          <li><a href="tutorials.html">TUTORIALS</a></li>
-          <li><a href="gaming.html">GAMING</a></li>
-        </ul>
-      </div>
+      <ul>
+        <li><a href="index.html">ME</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="tutorials.html">TUTORIALS</a></li>
+        <li><a href="gaming.html">GAMING</a></li>
+      </ul>
     </div>
     <div class="thatbox">
       <div class="tits">
-          <pre>
+          <nobr>
 oooo    oooo   .oooooo.   ooooooooooooo       .o.       <br />
 `888   .8P'   d8P'  `Y8b  8'   888   `8      .888.      <br />
  888  d8'    888      888      888          .8"888.     <br />
@@ -33,7 +43,7 @@ oooo    oooo   .oooooo.   ooooooooooooo       .o.       <br />
  888`88b.    888      888      888        .88ooo8888.   <br />
  888  `88b.  `88b    d88'      888       .8'     `888.  <br />
 o888o  o888o  `Y8bood8P'      o888o     o88o     o8888o <br />
-          </pre>
+          </nobr>
       </div>
       <div class="bode">
           <p>I am a programmer, designer, filmmaker, and gamer.
@@ -43,6 +53,11 @@ o888o  o888o  `Y8bood8P'      o888o     o88o     o8888o <br />
             information on the games I enjoy and even a few servers I run from time to
             time.
           </p>
+          <video id="sheep_video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+           <source src="sheep_video.mp4" type='video/mp4'>
+             <source src="sheep_video.webm" type='video/webm'>
+           <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+          </video>
       </div>
       <div class="contact">
           <h4>Contact Info</h4>

@@ -4,6 +4,7 @@ body {
 .nav {
   text-align: center;
   padding-top: 20px;
+  margin-right: 80px;
 }
 .nav li{
   display: inline-block;
@@ -26,14 +27,15 @@ body {
   width: 90%;
   align-content: center;
 }
-.tits pre {
-  padding-left: 70px;
-  padding-right: 70px;
+nobr {
+  white-space: pre;
   font-size: 12px;
-  line-height: .5;
-  background-color: #0C374D;
-  color: #EAF3FB;
-  border-color: #0C374D;
+}
+.tits {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  line-height: 0.5;
 }
 .bode p {
   padding-bottom: 20px;
