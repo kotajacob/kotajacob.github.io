@@ -45,6 +45,9 @@ nobr {
   font-size: 18px;
   text-align: justify;
 }
+.bode .videoholder {
+  text-align: center;
+}
 .contact {
   text-align: center;
   padding-top: 60px;
