@@ -1,0 +1,17 @@
+.projectLinks {
+  text-align: center;
+}
+.projectLinks li{
+  padding: 15px;
+  display: inline-block;
+}
+.projectLinks a{
+  color: #EAF3FB;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 14px 10px;
+  font-family: 'Source Code Pro', monospace;
+}
+.bode p {
+  text-align: center;
+}

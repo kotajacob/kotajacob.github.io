@@ -17,16 +17,6 @@ body {
   padding: 14px 10px;
   font-family: 'Source Code Pro', monospace;
 }
-.projectLinks {
-  text-align: center;
-}
-.projectLinks a{
-  color: #EAF3FB;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 14px 10px;
-  font-family: 'Source Code Pro', monospace;
-}
 .thatbox {
   background-color: #0C374D;
   color: #EAF3FB;
