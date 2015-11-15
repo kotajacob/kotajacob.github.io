@@ -37,6 +37,10 @@ nobr {
   text-align: center;
   line-height: 0.5;
 }
+.intro {
+  padding-left: 8%;
+  padding-right: 8%;
+}
 .bode p {
   padding-bottom: 20px;
   padding-top: 0px;
