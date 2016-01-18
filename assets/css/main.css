@@ -24,7 +24,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-		vertical-align: baseline;
+		/*! vertical-align: baseline; */
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -1632,7 +1632,7 @@
 	}
 
 	body {
-		background: #312450;
+		background: #072D63;
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1731,10 +1731,10 @@
 		}
 
 			h1.major:after {
-				background-image: -moz-linear-gradient(to right, #5e42a6, #b74e91);
-				background-image: -webkit-linear-gradient(to right, #5e42a6, #b74e91);
-				background-image: -ms-linear-gradient(to right, #5e42a6, #b74e91);
-				background-image: linear-gradient(to right, #5e42a6, #b74e91);
+				background-image: -moz-linear-gradient(to right, #FFFFFF, #FFFFFF-);
+				background-image: -webkit-linear-gradient(to right, #FFFFFF, #FFFFFF);
+				background-image: -ms-linear-gradient(to right, #FFFFFF, #FFFFFF);
+				background-image: linear-gradient(to right, #FFFFFF, #FFFFFF);
 				-moz-transition: max-width 0.2s ease;
 				-webkit-transition: max-width 0.2s ease;
 				-ms-transition: max-width 0.2s ease;
@@ -3259,15 +3259,15 @@
 			}
 
 		.wrapper.alt {
-			background-color: #050919;
+			background-color: #041C3A;
 		}
 
 		.wrapper.style1 {
-			background-color: #050919;
+			background-color: #041C3A;
 		}
 
 		.wrapper.style1-alt {
-			background-color: #050919;
+			background-color: #041C3A;
 		}
 
 		.wrapper.style2 {
@@ -3390,7 +3390,7 @@
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #5e42a6;
+		background-color: #052147;
 		cursor: default;
 		padding: 1.75em 2em;
 	}
@@ -3927,3 +3927,8 @@
 			}
 
 		}
+	#footer {
+		position:absolute;
+		bottom:0;
+		width:100%;
+	}
