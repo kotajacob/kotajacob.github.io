@@ -25,6 +25,10 @@ ul{
   list-style-type: none;
   padding: 0px;
 }
+.archlist {
+  width: 160px;
+  box-sizing: content-box;
+}
 .archlist p {
   margin: 0;
   font-weight: bold;
@@ -34,7 +38,7 @@ ul li {
   padding-left: 10px;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 950px) {
 	#archnav {
     position: relative;
     top: 0;
