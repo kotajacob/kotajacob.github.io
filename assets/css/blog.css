@@ -12,10 +12,11 @@ body.loaded {
   font-size: 15px;
   font-style: normal;
   position: fixed;
-  top: 192;
+  top: 0;
   left: 0;
   float: left;
 	width: 90px;
+  padding-top: 192px;
   padding-left: 32px;
   padding-right: 10%;
 }
