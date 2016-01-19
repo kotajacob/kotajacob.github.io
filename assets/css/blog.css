@@ -16,7 +16,7 @@ body.loaded {
   left: 0;
   float: left;
 	width: 90px;
-  padding-top: 192px;
+  margin-top: 192px;
   padding-left: 32px;
   padding-right: 10%;
 }
