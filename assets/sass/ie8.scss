@@ -2,52 +2,44 @@
 @import 'libs/functions';
 @import 'libs/mixins';
 @import 'libs/skel';
-
 /* Type */
-
-	body, input, select, textarea {
-		color: _palette(fg-bold);
-	}
-
+body,
+input,
+select,
+textarea {
+    color: _palette(fg-bold);
+}
 /* Button */
-
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
-		position: relative;
-
-		&:after {
-			display: none;
-		}
-	}
-
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    position: relative;
+    &:after {
+        display: none;
+    }
+}
 /* Features */
-
-	.features {
-		border: solid 1px;
-	}
-
+.features {
+    border: solid 1px;
+}
 /* Form */
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	select,
-	textarea {
-		background: transparent;
-		border: solid 1px;
-	}
-
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+select,
+textarea {
+    background: transparent;
+    border: solid 1px;
+}
 /* Split */
-
-	.split {
-		&.style1 {
-			> :first-child {
-				padding-right: 2em;
-				width: 70%;
-			}
-		}
-	}
+.split {
+    &.style1 {
+        > :first-child {
+            padding-right: 2em;
+            width: 70%;
+        }
+    }
+}
