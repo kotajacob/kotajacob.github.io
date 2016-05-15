@@ -1,20 +1,13 @@
 @import url(font-awesome.min.css);
-.main-preview-player {
-    margin: 0 auto;
-    text-align: center;
-    max-width: 1920px;
-}
-.main-preview-player .button {
-    text-transform: uppercase;
-}
 #btn-use-now {
     margin-right: 20px;
 }
-#preview-player {
+
+#youtube-player {
     margin: 0 auto 30px;
-    width: 100%;
-    padding-top: 41.5625%;
+    width: 100%;;
 }
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
