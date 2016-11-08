@@ -17,6 +17,7 @@
 	<meta name="description" content="Kota's amazing rant filled blog" />
 	<meta name="generator" content="My_keyboard" />
 	<meta name="author" content="Dakota J. Walsh" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../assets/css/blog.css" />
 	<link rel="stylesheet" href="../assets/css/zoom.css">
@@ -39,13 +40,88 @@
 			<div id="container" class="container font-size5">
 				<div style="display: block;" id="reader-top" class="top">
 					<div class="domain-border"></div>
-					<h1 id="reader-title">Debian Minimal Install</h1>
-					<div id="reader-credits" class="credits">Posted on: 5/15/16</div>
+					<h1 id="reader-title">Installing Arch Linux</h1>
+					<div id="reader-credits" class="credits">Posted on: 11/8/2016</div>
 				</div>
 				<div class="content">
 					<div style="display: block;">
 						<!--Actual text-->
-						<iframe id="youtube-player" src="http://youtube.com/embed/7-8mbeqhwEQ?color=white" allowfullscreen="" frameborder="0" height="480"></iframe>
+
+						<p>
+							This is not meant to be a beginner tutorial, but simply a quick
+							guide to keep and avoid missing any steps. If you are a beginner
+							check out the <a href="https://wiki.archlinux.org/index.php/Installation_guide">arch wiki&#39;s install guide</a> and ask people on the
+							<a href="https://bbs.archlinux.org/">forums</a> if you have any questions, also best of luck with your adventure.
+						</p>
+							<b>Things this guide assumes:</b>
+						<ul>
+								<li>- You have a working computer (either 1686 or x86_64)</li>
+								<li>- You have a working internet connection via ethernet (wifi installs are a bit of a bitch check the wiki)</li>
+								<li>- You have a <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media">flash-drive or disc</a> with arch install media on it <a href="https://www.archlinux.org/download/">(get a torrent from the site here)</a></li>
+								<li>- You aren&#39;t spooked by a terminal</li>
+								<li>- Your gender</li>
+						</ul>
+						<p>
+							<b>Getting Started:<br></b>
+							Plug in your flash drive and get your computer to
+							it bios or to some kind of quick boot menu. Then by either changing
+							your boot order or by selecting your flash-drive/disc-drive in the
+							menu get your computer to load arch&#39;s install media.
+						</p>
+						<p>
+							You&#39;ll be presented with a few options but all you need to do
+							is select the install one. If there are two options for install that
+							means you have a 64 bit computer which is great welcome to the 21st
+							century. Just pick the one that says x86_64 and you&#39;re good to go.
+						</p>
+						<p>A bunch of text and shit will scroll by (show it off to your friend so they think you&#39;re a 1337 H4x0r) and then it&#39;ll auto log you in.</p>
+						<p>The first thing you want to do is make sure your ethernet cable and setup is all working by pinging am online website.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>ping www.google.com</pre>
+						<p>if it says something like host not found you&#39;re fucked, otherwise press Ctrl + C to end the ping.</p>
+						<p>Now we need set-up and format the hard-drives partitions.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>lsblk</pre>
+						<img src="images/4_arch_install_lsblk.png" data-action="zoom" style="float:left;margin:20px 20px 20px 20px;">
+						<p>
+							Your output will look sorta similar the above picture. If you only have one hard-drive like in the above picture you&#39;ll see two devices. The larger one (sda) being your hard-drive and the smaller one (sdb) being the install flash-drive. The order and names may be different on your computer so make sure you find out which drive is the hard-drive you want to install arch on for use in the next command.
+						</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>cfdisk /dev/sda</pre>
+						<img src="images/5_arch_install_cfdisk.png" data-action="zoom" style="float:left;margin:20px 20px 20px 0px;width:100%;height:100%;">
+						<p>
+							I took this screenshot on my already installed and working computer so as you&#39;ll see there are two partitions. The first one I use for swap and the other one if used for everything else. What you&#39;ll want to do is go through and delete all of your partitions by selecting delete on them. Then make a new one and and when asked the size type in double whatever your ram is. For me that was only 4G. Then hit enter a few times and make another partition. You don&#39;t need to change the size on the second one since the default value will already be the rest of your hard-drive.
+						</p>
+						<p>Make sure you navigate over and select bootable for the second partition. Then move over and select write and finally quit once you&#39;re all done.</p>
+						<p>Assuming your partitions and drives are named the same as mine you can go ahead and enter all the following commands to partition your drive and enable your swap.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>mkfs.ext4 /dev/sda2<br><br>mkswap /dev/sda1<br><br>swapon /dev/sda1<br><br>mount /dev/sda2 /mnt</pre>
+						<p>Next we will tweak your mirror list so that you have the fastest mirrors for your location before we start the install.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup<br><br>rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup &gt; /etc/pacman.d/mirrorlist
+						</pre>
+						<p>That second command will take a long ass time to complete so go have some coffee and shit in the mean time. Once it&#39;s done we can install all the packages that make up arch linux.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>pacstrap -i /mnt base base-devel</pre>
+						<p>It will prompt you twice at the beginning making sure you actually want to install everything. Just press Y twice and sit back and relax.</p>
+						<p>Once that&#39;s all done we need to generate an fstab file. (I usually check to make sure it works with nano quick afterwards but it&#39;s not necessary)</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>genfstab -U /mnt &gt; /mnt/etc/fstab</pre>
+						<p>Now we change our root to the new install and off of the flash-drive</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>arch-chroot /mnt</pre>
+						<p>The prompt will change a bit if it worked and that means we need to set-up the boring shit like location and time.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>nano /etc/locale.gen</pre>
+						<p>Just uncomment (by removing the <a href="https://www.google.com/search?q=octothorpe&oq=opctothorpe&aqs=chrome.1.69i57j0l5.4731j0j4&sourceid=chrome&ie=UTF-8">octothorpes</a> at the beggining of the line) the two two English ones (en.US)</p>
+						<p>Then we enable them.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>locale-gen</pre>
+						<p>Moving on we need to set the time zone our computer will be using. If you happen to be on the east coast of the US just enter the command below. If not hit tab a bunch of times while typing your location or just look it up on the wiki.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>ln -s /usr/share/zoneinfo/America/New_York /etc/localtime<br>hwclock --systohc</pre>
+						<p><a href="http://fantasynamegenerators.com/">Now we can set the computers name.</a> This is the hardest part of any programmers job so choose carefully as it&#39;s kinda a bitch to change later and you&#39;ll see it every time you use a terminal.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>echo computernamehere &gt; /etc/hostname</pre>
+						<p>Now you probably want to be able to actually boot into your fresh (as fuck) new install. To do that we need a boot mamanger. Grub will suffice although if you&#39;re not lazy like me maybe check out reEFInd which can be made to look pretty fucking<br>awesome.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>pacman -S grub-bios<br><br>grub-install /dev/sda<br><br>mkinitcpio -p linux<br><br>grub-mkconfig -o /boot/grub/grub.cfg</pre>
+						<p>Alright good news we&#39;re almost done. We&#39;re gonna reboot onto our main hard-drive and make sure everything worked correctly. If it didn&#39;t I&#39;d recommend crying a bit and making a blood sacrifice to the linux gods before trying again.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>exit<br><br>umount /mnt<br><br>reboot</pre>
+						<p>Once it turns back on login to root and it&#39;s about damn time we set a password.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>passwd</pre>
+						<p>Now do yourself a favor and make sure it&#39;s a half decent password since it&#39;s for root and all. Check that it&#39;s not in the <a href='https://github.com/danielmiessler/SecLists/tree/master/Passwords'>top 10 million passwords</a> and also make it at least 8 characters so you don&#39;t get brute forced by some kiddie.</p>
+						<p>The last thing we want to do is make the ethernet port actually work by starting the dhcpcd service.</p>
+						<pre class='md-fences mock-cm' style='display:block;position:relative'>dhcpcd<br><br>ping www.google.com<br><br>systemctl enable dhcpcd<br><br>shutdown -P -h now</pre>
+						<p>Alright that wraps it up you now have a fully working arch linux install that can be used as a fancy desktop or a lightweight and always extremely up to date server. I might even get around to adding some tutorials for all the cool shit you can do and maybe a few desktop environments.</p>
+
 						<div class='signature'>
 							<p>
 								- Kota
@@ -55,9 +131,9 @@
 					</div>
 				</div>
 			</div>
+			<!--Navigation-->
 		</div>
 	</section>
-	<!--Navigation-->
 	<div id="archnav">
 		<div class="archlist">
 			<p>Archive</p>
@@ -67,8 +143,7 @@
 				<li><a href="blog_3.html">Gamemaker Part 0</a></li>
 				<li><a href="blog_4.html">Why Linux?</a></li>
 				<li><a href="blog_5.html">Privacy</a></li>
-				<li><a href="blog_6.html">Gamemaker Part 1</a></li>
-				<li><a href="blog_7.html">Debian Minimal Install</a></li>
+				<li><a href="blog_6.html">Installing Arch Linux</a></li>
 			</ul>
 		</div>
 	</div>

@@ -50,14 +50,14 @@
 						<p>
 							This is not meant to be a beginner tutorial, but simply a quick
 							guide to keep and avoid missing any steps. If you are a beginner
-							check out the arch wiki&#39;s install guide and ask people on the
-							forums if you have any questions, also best of luck with your adventure.
+							check out the <a href="https://wiki.archlinux.org/index.php/Installation_guide">arch wiki&#39;s install guide</a> and ask people on the
+							<a href="https://bbs.archlinux.org/">forums</a> if you have any questions, also best of luck with your adventure.
 						</p>
 							<b>Things this guide assumes:</b>
 						<ul>
 								<li>- You have a working computer (either 1686 or x86_64)</li>
 								<li>- You have a working internet connection via ethernet (wifi installs are a bit of a bitch check the wiki)</li>
-								<li>- You have a flash-drive or disc with arch install media on it (get a torrent from the site here)</li>
+								<li>- You have a <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media">flash-drive or disc</a> with arch install media on it <a href="https://www.archlinux.org/download/">(get a torrent from the site here)</a></li>
 								<li>- You aren&#39;t spooked by a terminal</li>
 								<li>- Your gender</li>
 						</ul>
@@ -104,14 +104,14 @@
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>arch-chroot /mnt</pre>
 						<p>The prompt will change a bit if it worked and that means we need to set-up the boring shit like location and time.</p>
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>nano /etc/locale.gen</pre>
-						<p>Just uncomment (by removing the octothorpes at the beggining of the line) the two two English ones (en.US)</p>
+						<p>Just uncomment (by removing the <a href="https://www.google.com/search?q=octothorpe&oq=opctothorpe&aqs=chrome.1.69i57j0l5.4731j0j4&sourceid=chrome&ie=UTF-8">octothorpes</a> at the beggining of the line) the two two English ones (en.US)</p>
 						<p>Then we enable them.</p>
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>locale-gen</pre>
 						<p>Moving on we need to set the time zone our computer will be using. If you happen to be on the east coast of the US just enter the command below. If not hit tab a bunch of times while typing your location or just look it up on the wiki.</p>
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>ln -s /usr/share/zoneinfo/America/New_York /etc/localtime<br>hwclock --systohc</pre>
-						<p>Now we can set the computers name. This is the hardest part of any programmers job so choose carefully as it&#39;s kinda a bitch to change later and you&#39;ll see it every time you use a terminal.</p>
+						<p><a href="http://fantasynamegenerators.com/">Now we can set the computers name.</a> This is the hardest part of any programmers job so choose carefully as it&#39;s kinda a bitch to change later and you&#39;ll see it every time you use a terminal.</p>
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>echo computernamehere &gt; /etc/hostname</pre>
-						<p>Now you probably want to be able to actually boot into your fresh (as fuck) new install. To do that we need a boot mamanger. Grub will suffice although if you&#39;re not lazy like me maybe check out reEFInd which can be made to look pretty fucking<br>awesome.</p>
+						<p>Now you probably want to be able to actually boot into your fresh (as fuck) new install. To do that we need a boot mamanger. Grub will suffice although if you&#39;re not lazy like me maybe check out reEFInd which can be made to look pretty <a href="images/6_reEFInd.png">fucking</a> <a href="images/7_reEFInd.png">awesome.</a></p>
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>pacman -S grub-bios<br><br>grub-install /dev/sda<br><br>mkinitcpio -p linux<br><br>grub-mkconfig -o /boot/grub/grub.cfg</pre>
 						<p>Alright good news we&#39;re almost done. We&#39;re gonna reboot onto our main hard-drive and make sure everything worked correctly. If it didn&#39;t I&#39;d recommend crying a bit and making a blood sacrifice to the linux gods before trying again.</p>
 						<pre class='md-fences mock-cm' style='display:block;position:relative'>exit<br><br>umount /mnt<br><br>reboot</pre>
